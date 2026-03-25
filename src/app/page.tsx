@@ -143,9 +143,7 @@ function Hero({ c }: { c: SectionContent }) {
           <span className="absolute bottom-12 right-0 text-6xl animate-float stagger-2">{"🤗"}</span>
           <span className="absolute top-1/3 -left-4 text-3xl animate-float-delayed stagger-3">{"😎"}</span>
           <span className="absolute -bottom-2 left-12 text-4xl animate-float stagger-4">{"🥳"}</span>
-          <div className="w-72 h-96 md:w-96 md:h-[28rem] bg-yellow/20 rounded-[3rem] flex items-center justify-center">
-            <span className="text-[10rem] md:text-[12rem] select-none">{"🙋"}</span>
-          </div>
+          <Image src="/media/hero-image.png" alt="Hero illustration with emojis" width={615} height={640} className="w-72 md:w-96 h-auto object-contain" />
         </div>
       </div>
     </section>
