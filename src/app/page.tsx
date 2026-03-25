@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import {
   content,
   variantLabels,
@@ -22,9 +23,8 @@ function Navbar({
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="font-display font-800 text-2xl tracking-tight">
-          free<span className="text-yellow">moji</span>
-          <span className="text-yellow">.</span>
+        <a href="#">
+          <Image src="/logo.svg" alt="freemoji" width={160} height={49} className="h-8 w-auto" priority />
         </a>
 
         <div className="hidden md:flex items-center gap-6 text-sm font-500">
@@ -147,9 +147,7 @@ function Hero({ c }: { c: SectionContent }) {
           <span className="absolute bottom-12 right-0 text-6xl animate-float stagger-2">🤗</span>
           <span className="absolute top-1/3 -left-4 text-3xl animate-float-delayed stagger-3">😎</span>
           <span className="absolute -bottom-2 left-12 text-4xl animate-float stagger-4">🥳</span>
-          <div className="w-72 h-96 md:w-96 md:h-[28rem] bg-yellow/20 rounded-[3rem] flex items-center justify-center">
-            <span className="text-[10rem] md:text-[12rem] select-none">🙋</span>
-          </div>
+          <Image src="/media/hero-image.png" alt="Hero illustration with emojis" width={615} height={640} className="w-72 md:w-96 h-auto object-contain" />
         </div>
       </div>
     </section>
@@ -492,7 +490,7 @@ function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-display font-800 text-xl">free<span className="text-yellow">moji</span>.</p>
+          <Image src="/logo.svg" alt="freemoji" width={120} height={37} className="h-6 w-auto brightness-0 invert" />
           <p className="text-gray-500 text-sm">&copy; {new Date().getFullYear()} freemoji. Wszelkie prawa zastrzeżone.</p>
           <div className="flex gap-4">
             {["Instagram", "LinkedIn", "Facebook"].map((s) => (
