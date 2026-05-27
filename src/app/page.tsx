@@ -2,6 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ContactForm from "@/components/ContactForm";
+import FAQSection from "@/components/FAQSection";
 import {
   content,
   variantLabels,
@@ -10,69 +14,6 @@ import {
 } from "@/data/content";
 
 const EMOJIS = ["😀", "😂", "🥹", "😍", "🤔", "😎", "🥳", "😤", "🤗", "😭"];
-
-/* ─── Navbar ─── */
-function Navbar({
-  variant,
-  setVariant,
-}: {
-  variant: VariantKey;
-  setVariant: (v: VariantKey) => void;
-}) {
-  const [open, setOpen] = useState(false);
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#">
-          <Image src="/logo.svg" alt="freemoji" width={160} height={49} className="h-8 w-auto" priority />
-        </a>
-        <div className="hidden md:flex items-center gap-6 text-sm font-500">
-          <select
-            value={variant}
-            onChange={(e) => setVariant(e.target.value as VariantKey)}
-            className="bg-yellow/10 border border-yellow/30 rounded-full px-4 py-2 text-sm font-600 text-gray-700 focus:outline-none focus:border-yellow cursor-pointer"
-          >
-            {(Object.keys(variantLabels) as VariantKey[]).map((k) => (
-              <option key={k} value={k}>{variantLabels[k]}</option>
-            ))}
-          </select>
-          <a href="#about" className="hover:text-yellow transition-colors">O nas</a>
-          <a href="#for-whom" className="hover:text-yellow transition-colors">Dla kogo</a>
-          <a href="#offer" className="hover:text-yellow transition-colors">Oferta</a>
-          <a href="#faq" className="hover:text-yellow transition-colors">FAQ</a>
-          <a href="#contact" className="bg-yellow hover:bg-yellow-dark text-gray-900 px-5 py-2.5 rounded-full font-600 transition-colors">
-            Kontakt
-          </a>
-        </div>
-        <div className="md:hidden flex items-center gap-3">
-          <select
-            value={variant}
-            onChange={(e) => setVariant(e.target.value as VariantKey)}
-            className="bg-yellow/10 border border-yellow/30 rounded-full px-3 py-1.5 text-xs font-600 text-gray-700 focus:outline-none"
-          >
-            {(Object.keys(variantLabels) as VariantKey[]).map((k) => (
-              <option key={k} value={k}>{variantLabels[k]}</option>
-            ))}
-          </select>
-          <button className="p-2" onClick={() => setOpen(!open)} aria-label="Menu">
-            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
-              {open ? <path d="M6 6l12 12M6 18L18 6" /> : <path d="M4 6h16M4 12h16M4 18h16" />}
-            </svg>
-          </button>
-        </div>
-      </div>
-      {open && (
-        <div className="md:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4 text-sm font-500">
-          <a href="#about" onClick={() => setOpen(false)}>O nas</a>
-          <a href="#for-whom" onClick={() => setOpen(false)}>Dla kogo</a>
-          <a href="#offer" onClick={() => setOpen(false)}>Oferta</a>
-          <a href="#faq" onClick={() => setOpen(false)}>FAQ</a>
-          <a href="#contact" onClick={() => setOpen(false)} className="bg-yellow text-gray-900 px-5 py-2.5 rounded-full font-600 text-center">Kontakt</a>
-        </div>
-      )}
-    </nav>
-  );
-}
 
 /* ─── Sticky Mobile CTA ─── */
 function StickyCTA() {
@@ -451,81 +392,23 @@ function WebinarPricing({ c }: { c: SectionContent }) {
   );
 }
 
-/* ─── FAQ ─── */
-function FAQ() {
-  const [openIdx, setOpenIdx] = useState<number | null>(null);
-  const faqs = [
-    { q: "Czym dokładnie jest cyfrowa mowa ciała?", a: "To sposób wyrażania emocji, intencji i tonu w komunikacji pisemnej — za pomocą emoji, interpunkcji, formatowania tekstu, czasu odpowiedzi i innych elementów, które zastępują mimikę i gesty w rozmowie twarzą w twarz." },
-    { q: "Dla kogo jest freemoji?", a: "Dla każdego, kto komunikuje się pisemnie w pracy lub życiu prywatnym. Szczególnie polecamy osobom z działów HR, sprzedaży, liderom zespołów, coachom i trenerom." },
-    { q: "Jak wygląda szkolenie?", a: "Oferujemy webinary na żywo, materiały edukacyjne do samodzielnej nauki, interaktywne ćwiczenia oraz mini gry, które pomagają zrozumieć kontekst emoji w komunikacji." },
-    { q: "Ile kosztuje dostęp?", a: "Dostęp do platformy zaczyna się od 199 zł. Szczegóły cennika znajdziesz w sekcji kontakt lub pisząc do nas na kontakt@freemoji.com." },
-    { q: "Czy mogę przetestować platformę?", a: "Tak! Zapisz się na bezpłatny webinar, aby poznać nasze podejście i zobaczyć fragment platformy w akcji." },
-  ];
-
-  return (
-    <section id="faq" className="py-24 md:py-32 bg-gray-50">
-      <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="font-display font-800 text-4xl md:text-5xl mb-4">Często zadawane pytania</h2>
-        </div>
-        <div className="space-y-4">
-          {faqs.map((f, i) => (
-            <div key={i} className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
-              <button onClick={() => setOpenIdx(openIdx === i ? null : i)} className="w-full text-left p-6 flex items-center justify-between gap-4 font-600 hover:bg-gray-50 transition-colors">
-                {f.q}
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className={`shrink-0 transition-transform ${openIdx === i ? "rotate-180" : ""}`}>
-                  <path d="M5 8l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-              {openIdx === i && <div className="px-6 pb-6 text-gray-500 leading-relaxed">{f.a}</div>}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─── Footer ─── */
-function Footer() {
-  return (
-    <footer id="contact" className="bg-gray-900 text-white py-20">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-16 mb-16">
-          <div>
-            <h2 className="font-display font-800 text-4xl mb-4">Masz <span className="text-yellow">pytanie</span>?</h2>
-            <p className="text-gray-400 mb-8 leading-relaxed">Napisz do nas — odpowiadamy szybko i z emoji!</p>
-            <a href="mailto:kontakt@freemoji.com" className="text-yellow hover:text-yellow-light text-lg font-600 transition-colors">kontakt@freemoji.com</a>
-          </div>
-          <div className="flex flex-col gap-4">
-            <input type="text" placeholder="Imię" className="bg-gray-800 border border-gray-700 rounded-xl px-5 py-3.5 text-white placeholder:text-gray-500 focus:outline-none focus:border-yellow transition-colors" />
-            <input type="email" placeholder="Email" className="bg-gray-800 border border-gray-700 rounded-xl px-5 py-3.5 text-white placeholder:text-gray-500 focus:outline-none focus:border-yellow transition-colors" />
-            <textarea placeholder="Wiadomość" rows={4} className="bg-gray-800 border border-gray-700 rounded-xl px-5 py-3.5 text-white placeholder:text-gray-500 focus:outline-none focus:border-yellow transition-colors resize-none" />
-            <button className="bg-yellow hover:bg-yellow-dark text-gray-900 font-600 px-8 py-3.5 rounded-xl transition-colors self-start">Wyślij wiadomość</button>
-          </div>
-        </div>
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <Image src="/logo.svg" alt="freemoji" width={120} height={37} className="h-6 w-auto brightness-0 invert" />
-          <p className="text-gray-500 text-sm">&copy; {new Date().getFullYear()} freemoji. Wszelkie prawa zastrzeżone.</p>
-          <div className="flex gap-4">
-            {["Instagram", "LinkedIn", "Facebook"].map((s) => (
-              <a key={s} href="#" className="text-gray-500 hover:text-yellow text-sm transition-colors">{s}</a>
-            ))}
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 /* ─── Main Page (new conversion-optimized order) ─── */
 export default function Home() {
   const [variant, setVariant] = useState<VariantKey>("normalne");
   const c = content[variant];
+  
+  // FAQ data z formatem kompatybilnym z FAQSection
+  const faqs = [
+    { emoji: "🤔", question: "Czym dokładnie jest cyfrowa mowa ciała?", answer: "To sposób wyrażania emocji, intencji i tonu w komunikacji pisemnej — za pomocą emoji, interpunkcji, formatowania tekstu, czasu odpowiedzi i innych elementów, które zastępują mimikę i gesty w rozmowie twarzą w twarz." },
+    { emoji: "👥", question: "Dla kogo jest freemoji?", answer: "Dla każdego, kto komunikuje się pisemnie w pracy lub życiu prywatnym. Szczególnie polecamy osobom z działów HR, sprzedaży, liderom zespołów, coachom i trenerom." },
+    { emoji: "📚", question: "Jak wygląda szkolenie?", answer: "Oferujemy webinary na żywo, materiały edukacyjne do samodzielnej nauki, interaktywne ćwiczenia oraz mini gry, które pomagają zrozumieć kontekst emoji w komunikacji." },
+    { emoji: "💰", question: "Ile kosztuje dostęp?", answer: "Dostęp do platformy zaczyna się od 199 zł. Szczegóły cennika znajdziesz w sekcji kontakt lub pisząc do nas na kontakt@freemoji.com." },
+    { emoji: "✨", question: "Czy mogę przetestować platformę?", answer: "Tak! Zapisz się na bezpłatny webinar, aby poznać nasze podejście i zobaczyć fragment platformy w akcji." },
+  ];
 
   return (
     <>
-      <Navbar variant={variant} setVariant={setVariant} />
+      <Navbar variant={variant} setVariant={setVariant} showLanguageSelector={true} />
       <StickyCTA />
       <main>
         <Hero c={c} />
@@ -537,7 +420,8 @@ export default function Home() {
         <Solution c={c} />
         <HowItWorks />
         <WebinarPricing c={c} />
-        <FAQ />
+        <FAQSection faqs={faqs} />
+        <ContactForm />
       </main>
       <Footer />
     </>

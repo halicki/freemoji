@@ -64,6 +64,37 @@ export interface ForWhomContent {
   bullets: string[];
 }
 
+export interface BetterMessageContent {
+  heroHeading: string;
+  heroSubtitle: string;
+  heroCta: string;
+  pricingHeading: string;
+  videoHeading: string;
+  videoSubtitle: string;
+  emojiWarningHeading: string;
+  testimonialsHeading: string;
+  contactHeading: string;
+  contactPlaceholder1: string;
+  contactPlaceholder2: string;
+  contactPlaceholder3: string;
+  contactSubmit: string;
+}
+
+export interface EmojiGameContent {
+  bannerText: string;
+  quizHeading: string;
+  questionLabel: string;
+  scoreLabel: string;
+  checkAnswer: string;
+  nextQuestion: string;
+  correctFeedback: string;
+  incorrectFeedback: string;
+  perfectScoreHeading: string;
+  perfectScoreText: string;
+  tryAgain: string;
+  backToHome: string;
+}
+
 export interface SectionContent {
   hero: HeroContent;
   about: AboutContent;
@@ -74,6 +105,8 @@ export interface SectionContent {
   webinar: WebinarContent;
   webinarPromo: WebinarPromoContent;
   forWhom: ForWhomContent;
+  betterMessage: BetterMessageContent;
+  emojiGame: EmojiGameContent;
 }
 
 export const content: Record<VariantKey, SectionContent> = {
@@ -173,6 +206,35 @@ export const content: Record<VariantKey, SectionContent> = {
         "Zarza\u0328dzaja\u0328cy zespo\u0142ami",
         "Kaz\u0307dy, kto chce lepiej rozumiec\u0301 komunikacje\u0328 w internecie",
       ],
+    },
+    betterMessage: {
+      heroHeading: "Komunikacja to wie\u0328cej niz\u0307 s\u0142owa",
+      heroSubtitle: "Odkryj moc cyfrowej mowy cia\u0142a i rozwijaj s\u0301wiadome relacje w komunikacji online.",
+      heroCta: "Rozpocznij szkolenie",
+      pricingHeading: "Wybierz plan dla siebie",
+      videoHeading: "Zobacz jak dzia\u0142a freemoji",
+      videoSubtitle: "Kr\u00f3tkie wprowadzenie do cyfrowej mowy cia\u0142a",
+      emojiWarningHeading: "\u0141zy **nie zawsze** sa\u0328 spowodowane smutkiem. Emoji to tez\u0307 **nie rada na wszystko.**",
+      testimonialsHeading: "Co mo\u0301wia\u0328 nasi uczestnicy?",
+      contactHeading: "Masz pytania? Napisz do nas",
+      contactPlaceholder1: "Imie\u0328 i nazwisko",
+      contactPlaceholder2: "temat",
+      contactPlaceholder3: "tres\u0301c\u0301 wiadomos\u0301ci",
+      contactSubmit: "Wys\u0142ij wiadomos\u0301c\u0301",
+    },
+    emojiGame: {
+      bannerText: "\uD83C\uDFC6 Zdobadz\u0307 5/5 i odbierz kod na 5% rabatu!",
+      quizHeading: "Quiz: Czy znasz znaczenie emoji?",
+      questionLabel: "Pytanie",
+      scoreLabel: "Wynik",
+      checkAnswer: "Sprawd\u017A odpowied\u017A",
+      nextQuestion: "Naste\u0328pne pytanie",
+      correctFeedback: "Prawid\u0142owo!",
+      incorrectFeedback: "Niestety, to nie jest prawid\u0142owa odpowied\u017A",
+      perfectScoreHeading: "Gratulacje! \uD83C\uDF89",
+      perfectScoreText: "Tw\u00f3j kod rabatowy:",
+      tryAgain: "Spr\u00f3buj ponownie",
+      backToHome: "Wr\u00f3\u0107 na stron\u0119 g\u0142\u00f3wn\u0105",
     },
   },
 
@@ -275,6 +337,35 @@ export const content: Record<VariantKey, SectionContent> = {
         "Albo po prostu chce lepiej ogarniac\u0301 komunikacje\u0328 w internecie",
       ],
     },
+    betterMessage: {
+      heroHeading: "Komunikacja to vibe, nie tylko s\u0142owa",
+      heroSubtitle: "Naucz sie\u0328 czytac\u0301 emocje przez ekran i buduj normalne relacje online.",
+      heroCta: "Wbijaj na szkolenie \uD83D\uDD25",
+      pricingHeading: "Wybierz sw\u00f3j plan",
+      videoHeading: "Zobacz jak to dzia\u0142a",
+      videoSubtitle: "Quick intro do cyfrowej mowy cia\u0142a",
+      emojiWarningHeading: "\u0141zy **nie zawsze** = smutek. Emoji to tez\u0307 **nie fix na wszystko.**",
+      testimonialsHeading: "Co m\u00f3wia\u0328 uczestnicy?",
+      contactHeading: "Pytania? Wrzucaj",
+      contactPlaceholder1: "Imie\u0328",
+      contactPlaceholder2: "o co chodzi",
+      contactPlaceholder3: "Tw\u00f3j message",
+      contactSubmit: "Wy\u015blij",
+    },
+    emojiGame: {
+      bannerText: "\uD83C\uDFC6 5/5 = kod na 5% rabatu!",
+      quizHeading: "Quiz: Znasz emoji?",
+      questionLabel: "Pytanie",
+      scoreLabel: "Score",
+      checkAnswer: "Check",
+      nextQuestion: "Dalej",
+      correctFeedback: "Git! \uD83D\uDCAF",
+      incorrectFeedback: "Nie tym razem",
+      perfectScoreHeading: "GG! \uD83C\uDF89",
+      perfectScoreText: "Tw\u00f3j kod:",
+      tryAgain: "Jeszcze raz",
+      backToHome: "Wr\u00f3\u0107 na home",
+    },
   },
 
   boomer: {
@@ -373,6 +464,35 @@ export const content: Record<VariantKey, SectionContent> = {
         "Zarza\u0328dzaja\u0328cy zespo\u0142ami",
         "Osoby, kto\u0301re chca\u0328 lepiej rozumiec\u0301 komunikacje\u0328 w internecie",
       ],
+    },
+    betterMessage: {
+      heroHeading: "Komunikacja to wie\u0328cej niz\u0307 s\u0142owa",
+      heroSubtitle: "Rozwijaj s\u0301wiadome relacje w komunikacji online poprzez zrozumienie cyfrowej mowy cia\u0142a.",
+      heroCta: "Zapisz sie\u0328 na szkolenie",
+      pricingHeading: "Wybierz odpowiedni plan",
+      videoHeading: "Poznaj freemoji",
+      videoSubtitle: "Wprowadzenie do cyfrowej mowy cia\u0142a",
+      emojiWarningHeading: "\u0141zy **nie zawsze** sa\u0328 spowodowane smutkiem. Emoji to tez\u0307 **nie rada na wszystko.**",
+      testimonialsHeading: "Opinie uczestnik\u00f3w",
+      contactHeading: "Masz pytania? Skontaktuj sie\u0328 z nami",
+      contactPlaceholder1: "Imie\u0328 i nazwisko",
+      contactPlaceholder2: "temat zapytania",
+      contactPlaceholder3: "tres\u0301c\u0301 wiadomos\u0301ci",
+      contactSubmit: "Wys\u0142ij zapytanie",
+    },
+    emojiGame: {
+      bannerText: "\uD83C\uDFC6 Uzyskaj wynik 5/5 i otrzymaj kod rabatowy na 5%!",
+      quizHeading: "Quiz: Czy rozumiesz znaczenie emoji?",
+      questionLabel: "Pytanie",
+      scoreLabel: "Wynik",
+      checkAnswer: "Sprawd\u017A odpowied\u017A",
+      nextQuestion: "Naste\u0328pne pytanie",
+      correctFeedback: "Prawid\u0142owo!",
+      incorrectFeedback: "Niestety, odpowied\u017A jest nieprawid\u0142owa",
+      perfectScoreHeading: "Gratulacje! \uD83C\uDF89",
+      perfectScoreText: "Tw\u00f3j kod rabatowy:",
+      tryAgain: "Spr\u00f3buj ponownie",
+      backToHome: "Powr\u00f3t na stron\u0119 g\u0142\u00f3wn\u0105",
     },
   },
 
@@ -473,6 +593,35 @@ export const content: Record<VariantKey, SectionContent> = {
         "Ka\u017Cdy kto chce mie\u0107 rizz w komunikacji",
         "I ka\u017Cdy kto ma do\u015B\u0107 bycia \u017Ale rozumianym w czacie",
       ],
+    },
+    betterMessage: {
+      heroHeading: "Komunikacja = wi\u0119cej ni\u017C words",
+      heroSubtitle: "Level up swoj\u0105 cyfrowa\u0328 mowe\u0328 cia\u0142a i buduj proper relacje online. No cap.",
+      heroCta: "Join szkolenie \uD83D\uDD25",
+      pricingHeading: "Wybierz sw\u00f3j plan",
+      videoHeading: "Zobacz jak to leci",
+      videoSubtitle: "Quick intro do cyfrowej mowy cia\u0142a",
+      emojiWarningHeading: "\u0141zy **nie zawsze** = crying. Emoji to **nie cheat code.**",
+      testimonialsHeading: "Co gadaj\u0105 uczestnicy?",
+      contactHeading: "Pytania? Drop message",
+      contactPlaceholder1: "Imi\u0119",
+      contactPlaceholder2: "o co pytasz",
+      contactPlaceholder3: "Tw\u00f3j vibe",
+      contactSubmit: "Send",
+    },
+    emojiGame: {
+      bannerText: "\uD83C\uDFC6 5/5 = kod na 5% off!",
+      quizHeading: "Quiz: Czaisz emoji?",
+      questionLabel: "Quest",
+      scoreLabel: "Score",
+      checkAnswer: "Check",
+      nextQuestion: "Next",
+      correctFeedback: "W! \uD83D\uDD25",
+      incorrectFeedback: "L tym razem",
+      perfectScoreHeading: "Gigachad! \uD83C\uDF89",
+      perfectScoreText: "Tw\u00f3j kod:",
+      tryAgain: "Retry",
+      backToHome: "Back to home",
     },
   },
 };
