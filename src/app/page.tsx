@@ -133,7 +133,7 @@ function About() {
         <div>
           <p className="text-yellow font-600 text-sm uppercase tracking-widest mb-3">{t("home.about.label")}</p>
           <h2 className="font-display font-800 text-4xl md:text-5xl mb-12 leading-tight">
-            {t("home.about.heading").split("freemoji").map((part, i, arr) =>
+            {t("home.about.heading").split("freemoji").map((part: string, i: number, arr: string[]) =>
               i < arr.length - 1 ? (
                 <span key={i}>{part}<span className="text-yellow">freemoji</span></span>
               ) : (
@@ -214,7 +214,7 @@ function EmojiShowcase() {
     <section className="py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 text-center mb-16">
         <h2 className="font-display font-800 text-4xl md:text-5xl mb-4">
-          {t("home.emojiShowcase.heading").split("emocji").map((part, i, arr) =>
+          {t("home.emojiShowcase.heading").split("emocji").map((part: string, i: number, arr: string[]) =>
             i < arr.length - 1 ? (
               <span key={i}>{part}<span className="text-yellow">emocji</span></span>
             ) : (
